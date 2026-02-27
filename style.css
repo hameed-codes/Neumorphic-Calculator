@@ -1,0 +1,169 @@
+/*Variables*/
+:root {
+    --base-color: #ffffff;
+    --secondary-color: #dbfbff;
+    --btns-shadow-dark: #bad5d9;
+    --btns-shadow-light: #fcffff;
+    --hightlight-keys-backgroundColors: #f6ff00; 
+    --highlight-keys-shadow-dark: #d1d900;
+    --highlight-keys-shadow-light: #ffff00;
+    --hightlight-keys-fontColor: #008000;
+    --text-color: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    user-select: none;
+}
+
+/*changed variables for darkmode*/
+.darkTheme {
+    --base-color: #202020;
+    --secondary-color: #484848;
+    --btns-shadow-dark: #3d3d3d;
+    --btns-shadow-light: #535353;
+    --hightlight-keys-backgroundColors: #941a1a; 
+    --highlight-keys-shadow-dark: #7e1616;
+    --highlight-keys-shadow-light: #aa1e1e;
+    --hightlight-keys-fontColor: #ffffff;
+    --text-color: #ffffff;
+}
+
+body {
+    background-color: var(--base-color);
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator {
+    height: 90%;
+    width: 500px;
+    padding: auto;
+    border-radius: 4vmin;
+    background: var(--base-color);
+    margin: auto;
+    box-shadow:  0.5vmin 0.5vmin 4vmin #d9d9d9,
+                -0.5vmin -0.5vmin 4vmin #ffffff;
+}
+
+/* Side Screen */
+.secondary-screen {
+    width: 100%;
+    max-width: 90%;
+    height: 20%;
+    padding: 5vmin;
+    text-align: right;
+    font-size: 5vmin;
+    color: #888888;
+    overflow-x: hidden;
+    align-items: center;
+    justify-content: flex-end;
+    max-width: 100%;
+}
+
+/* Main Screen */
+.screen {
+    color: var(--text-color);
+    width: 100%;
+    height: 30%;
+    padding: 4vmin;
+    font-size: 2rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content:flex-end;
+    max-width: 100%;
+}
+
+.keypad {
+    padding: 4vmin;
+    height: 50%;
+    display: grid;
+    margin: auto;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    column-gap: 1.5%;
+    gap: 2vmin;
+    border-radius: 4vmin;
+    background-color: var(--secondary-color);
+}
+
+/* keypad keys styling */
+.btn {
+    color: var(--text-color);
+    border-style: none;
+    border-radius: 2vmin;
+    background: var(--secondary-color);
+    box-shadow:  0.5vmin 0.5vmin 2vmin var(--btns-shadow-dark),
+             -0.5vmin -0.5vmin 2vmin var(--btns-shadow-light);
+    
+    font-size: 3vmin;
+}
+
+#equals {
+    color : var(--hightlight-keys-fontColor);
+    background-color: var(--hightlight-keys-backgroundColors);
+    box-shadow:  0.5vmin 0.5vmin 2vmin var(--btns-shadow-dark),
+             -0.5vmin -0.5vmin 2vmin var(--btns-shadow-light);
+
+}
+
+#clear {
+    color : var(--hightlight-keys-fontColor);
+    background-color: var(--hightlight-keys-backgroundColors);
+    box-shadow:  0.5vmin 0.5vmin 2vmin var(--btns-shadow-dark),
+             -0.5vmin -0.5vmin 2vmin var(--btns-shadow-light);
+}
+
+#delete, #multiply, #divide, #subtract, #add, #point, #square {
+    color: #ff6f00;
+}
+
+/*Key Press Effect*/
+.btn:active {
+    box-shadow: 0.5vmin 0.5vmin 2vmin var(--btns-shadow-dark) inset,
+                -0.5vmin -0.5vmin 2vmin var(--btns-shadow-light) inset;
+    
+}
+
+#clear:active, #equals:active {
+    box-shadow: 0.5vmin 0.5vmin 2vmin var(--highlight-keys-shadow-dark) inset,
+             -0.5vmin -0.5vmin 2vmin var(--highlight-keys-shadow-light) inset;
+}
+
+/*Responsivness to the screen*/
+@media (max-width: 700px) {
+    .keypad {
+        gap: 4vmin;
+        border-radius: 8vmin;
+        padding-bottom: 20vmin;
+        border-radius: 4vmin;
+    }
+
+    .btn {
+        font-size: 1.5rem;
+    }
+
+    .screen {
+        padding-top: 10vmin;
+        padding-bottom: 10vmin;
+        font-size: 2rem;
+    }
+
+    .secondary-screen {
+        padding-top: 10vmin;
+        font-size: 5vmin;
+    }
+
+    .calculator {
+        height: 100%;
+        width: 100%;
+    }
+}
